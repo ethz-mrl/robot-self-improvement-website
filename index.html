@@ -99,7 +99,7 @@
     <div class="hero-body">
       <!-- placeholder: replace src with your teaser video once available -->
       <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4" type="video/mp4">
+        <source src="./media/video-teaser.mp4" type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered" style="margin-top:1rem;">
         <span class="dgac-name">DGAC</span> uses human-video priors to
@@ -177,11 +177,11 @@
 
     <!-- Stretch task buttons -->
     <div id="stretch-tasks" class="task-buttons has-text-centered">
-      <button class="task-btn active" onclick="switchTask('stretch','open_the_microwave_and_take_the_drink', this)">Open Microwave &amp; Take Drink</button>
-      <button class="task-btn" onclick="switchTask('stretch','open_the_ricecooker_and_put_food_inside', this)">Open Rice Cooker &amp; Put Food</button>
-      <button class="task-btn" onclick="switchTask('stretch','pick_up_the_ball_and_place_it_in_the_basket', this)">Pick Ball &amp; Place in Basket</button>
-      <button class="task-btn" onclick="switchTask('stretch','put_the_socks_in_the_drawer_and_close_the_drawer', this)">Put Socks in Drawer</button>
+      <button class="task-btn active" onclick="switchTask('stretch','open_the_ricecooker_and_put_food_inside', this)">Open Ricecooker &amp; Put Food</button>
       <button class="task-btn" onclick="switchTask('stretch','take_the_sponge_and_wipe_the_table', this)">Take Sponge &amp; Wipe Table</button>
+      <button class="task-btn" onclick="switchTask('stretch','open_the_microwave_and_take_the_drink', this)">Open Microwave &amp; Take Drink</button>
+      <button class="task-btn" onclick="switchTask('stretch','pick_up_the_ball_and_place_it_in_the_basket', this)">Pick Ball &amp; Place in Basket</button>
+      <button class="task-btn" onclick="switchTask('stretch','put_the_socks_in_the_drawer_and_close_the_drawer', this)">Put Socks in Drawer &amp; Close Drawer</button>
     </div>
 
     <!-- Video display area -->
@@ -229,7 +229,7 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{chenZhang2026RobotSelfImprovement,
+    <pre><code>@inproceedings{ChenZhang2026RobotSelfImprovement,
   title     = {Robot Self-Improvement via Human-Video Dynamics Models},
   author    = {Hanzhi Chen and Anran Zhang and Simon Schaefer and Kejia Chen and
                Shi Chen and Daniel Cremers and Oier Mees and Stefan Leutenegger},
@@ -257,9 +257,9 @@
 
 <script>
 // ─── Video data ────────────────────────────────────────────────────────────────
-// Each entry: [before_src, after_src]  (relative to static/videos/)
-const BASE_FRANKA = "./static/videos/comparison_franka/comparison_videos_franka";
-const BASE_STRETCH = "./static/videos/comparison_stretch/comparison_videos_stretch";
+// Each entry: [before_src, after_src]
+const BASE_FRANKA = "./media/franka";
+const BASE_STRETCH = "./media/stretch";
 
 const FRANKA_DATA = {
   brush_left: [
@@ -283,17 +283,17 @@ const FRANKA_DATA = {
 };
 
 const STRETCH_DATA = {
+    open_the_ricecooker_and_put_food_inside: [
+    [`${BASE_STRETCH}/open_the_ricecooker_and_put_food_inside/2026-03-29--14-50-51/src_videos/2026-03-29--14-50-51_gripper.mp4`,
+     `${BASE_STRETCH}/open_the_ricecooker_and_put_food_inside/2026-03-29--14-50-51/compared_videos/2026-04-13--20-03-38_gripper.mp4`],
+    [`${BASE_STRETCH}/open_the_ricecooker_and_put_food_inside/2026-03-29--15-20-08/src_videos/2026-03-29--15-20-08_gripper.mp4`,
+     `${BASE_STRETCH}/open_the_ricecooker_and_put_food_inside/2026-03-29--15-20-08/compared_videos/2026-04-13--20-17-58_gripper.mp4`],
+  ],
   open_the_microwave_and_take_the_drink: [
     [`${BASE_STRETCH}/open_the_microwave_and_take_the_drink/2026-03-15--12-20-14/src_videos/2026-03-15--12-20-14_gripper.mp4`,
      `${BASE_STRETCH}/open_the_microwave_and_take_the_drink/2026-03-15--12-20-14/compared_videos/2026-04-15--16-37-43_gripper.mp4`],
     [`${BASE_STRETCH}/open_the_microwave_and_take_the_drink/2026-03-15--12-22-58/src_videos/2026-03-15--12-22-58_gripper.mp4`,
      `${BASE_STRETCH}/open_the_microwave_and_take_the_drink/2026-03-15--12-22-58/compared_videos/2026-04-15--16-44-26_gripper.mp4`],
-  ],
-  open_the_ricecooker_and_put_food_inside: [
-    [`${BASE_STRETCH}/open_the_ricecooker_and_put_food_inside/2026-03-29--14-50-51/src_videos/2026-03-29--14-50-51_gripper.mp4`,
-     `${BASE_STRETCH}/open_the_ricecooker_and_put_food_inside/2026-03-29--14-50-51/compared_videos/2026-04-13--20-03-38_gripper.mp4`],
-    [`${BASE_STRETCH}/open_the_ricecooker_and_put_food_inside/2026-03-29--15-20-08/src_videos/2026-03-29--15-20-08_gripper.mp4`,
-     `${BASE_STRETCH}/open_the_ricecooker_and_put_food_inside/2026-03-29--15-20-08/compared_videos/2026-04-13--20-17-58_gripper.mp4`],
   ],
   pick_up_the_ball_and_place_it_in_the_basket: [
     [`${BASE_STRETCH}/pick_up_the_ball_and_place_it_in_the_basket/2026-04-09--17-36-45/src_videos/2026-04-09--17-36-45_gripper.mp4`,
@@ -321,7 +321,7 @@ const STRETCH_DATA = {
 
 // ─── State ─────────────────────────────────────────────────────────────────────
 let currentRobot = 'stretch';
-let currentTask  = 'open_the_microwave_and_take_the_drink';
+let currentTask  = 'open_the_ricecooker_and_put_food_inside';
 let currentIdx   = 0;
 
 // ─── Franka merged groups ──────────────────────────────────────────────────────
@@ -380,8 +380,8 @@ function switchRobot(robot, btn) {
     currentTask = 'brush';
     document.querySelectorAll('#franka-tasks .task-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
   } else {
-    currentTask = 'open_the_microwave_and_take_the_drink';
-    document.querySelectorAll('#stretch-tasks .task-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
+    currentTask = 'open_the_ricecooker_and_put_food_inside';
+    document.querySelectorAll('#stretch-tasks .task-btn').forEach((b, i) => b.classList.toggle('active', i === 1));
   }
   currentIdx = 0;
   loadSample(0);
