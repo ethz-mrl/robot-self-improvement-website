@@ -382,6 +382,7 @@ function stGoTask(i) { stLoad(i); }
 // Each entry: [before_src, after_src]
 const BASE_FRANKA = "./media/franka";
 const BASE_STRETCH = "./media/stretch";
+const BASE_STRETCH_NEW = "./media/videos/self-improve-video-comparisons";
 
 const FRANKA_DATA = {
   brush_left: [
@@ -434,8 +435,8 @@ const STRETCH_DATA = {
   take_the_sponge_and_wipe_the_table: [
     [`${BASE_STRETCH}/latest_wipe_table/2026-05-23--14-13-00_compressed_gripper_images.mp4`,
      `${BASE_STRETCH}/latest_wipe_table/2026-05-23--13-59-54_compressed_gripper_images.mp4`],
-    [`${BASE_STRETCH}/take_the_sponge_and_wipe_the_table/2026-03-17--13-00-49/src_videos/2026-03-17--13-00-49_gripper.mp4`,
-     `${BASE_STRETCH}/take_the_sponge_and_wipe_the_table/2026-03-17--13-00-49/compared_videos/2026-04-13--20-25-37_gripper.mp4`],
+    [`${BASE_STRETCH_NEW}/sponge_compare/failure.mp4`,
+     `${BASE_STRETCH_NEW}/sponge_compare/succ1.mp4`],
     [`${BASE_STRETCH}/take_the_sponge_and_wipe_the_table/mis_grasp_right/src_videos/2026-03-17--12-57-38_gripper.mp4`,
      `${BASE_STRETCH}/take_the_sponge_and_wipe_the_table/mis_grasp_right/compared_videos/2026-04-15--17-51-46_gripper.mp4`],
   ],
