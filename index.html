@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title> Robot Self-Improvement via Human-Video Dynamics Models</title>
 
+  <link rel="icon" href="./static/images/freunde.png" type="image/png">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
@@ -361,9 +362,8 @@ function loadSample(idx) {
 }
 
 function setVideo(srcId, vidId, src) {
-  const srcEl = document.getElementById(srcId);
   const vidEl = document.getElementById(vidId);
-  srcEl.src = src;
+  vidEl.src = src;
   vidEl.load();
   vidEl.play().catch(() => {});
 }
