@@ -148,15 +148,66 @@
   </div>
 </section>
 
+<!-- Method -->
+<section class="section" style="background:#f8f7ff;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Method</h2>
+        <img src="./media/images/pipeline.png" alt="DGAC Pipeline" style="width:100%; border-radius:8px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- Comparison Videos -->
 <section class="section" id="comparisons" style="background:#f8f9fb;">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Comparison Results</h2>
+    <h2 class="title is-3 has-text-centered">Self-Improvement Results</h2>
     <p class="has-text-centered" style="margin-bottom:2rem; color:#555;">
       Each pair shows <strong>Before Self-Improvement</strong> (left) vs. <strong>After Self-Improvement</strong> (right) using proposed DGAC module.
-      Select a robot and task below. 
+      Select a robot and task below.
       All videos are played at <strong>1x speed</strong>.
     </p>
+
+    <!-- Subtask highlight rows -->
+    <div style="margin-bottom:2.5rem;">
+      <div class="columns is-centered" style="margin-bottom:0.25rem;">
+        <div class="column is-5 has-text-centered"><span class="method-label before-label">Before Self-Improvement</span></div>
+        <div class="column is-5 has-text-centered"><span class="method-label after-label">After Self-Improvement</span></div>
+      </div>
+
+      <!-- kitchen -->
+      <p class="has-text-centered" style="font-weight:600; margin-bottom:0.4rem; color:#444;">Open Rice Cooker &amp; Put Food</p>
+      <div class="columns is-centered" style="margin-bottom:1.2rem;">
+        <div class="column is-5"><video class="comparison-video" autoplay muted playsinline src="./media/videos/self-improve-video-comparisons/kitchen_compare/failure.mp4"></video></div>
+        <div class="column is-5"><video class="comparison-video after-video" autoplay muted playsinline src="./media/videos/self-improve-video-comparisons/kitchen_compare/succ1.mp4"></video></div>
+      </div>
+
+      <!-- microwave -->
+      <p class="has-text-centered" style="font-weight:600; margin-bottom:0.4rem; color:#444;">Open Microwave &amp; Take Drink</p>
+      <div class="columns is-centered" style="margin-bottom:1.2rem;">
+        <div class="column is-5"><video class="comparison-video" autoplay muted playsinline src="./media/videos/self-improve-video-comparisons/microwave_compare/failure.mp4"></video></div>
+        <div class="column is-5"><video class="comparison-video after-video" autoplay muted playsinline src="./media/videos/self-improve-video-comparisons/microwave_compare/succ1.mp4"></video></div>
+      </div>
+
+      <!-- sock -->
+      <p class="has-text-centered" style="font-weight:600; margin-bottom:0.4rem; color:#444;">Put Socks in Drawer</p>
+      <div class="columns is-centered" style="margin-bottom:1.2rem;">
+        <div class="column is-5"><video class="comparison-video" autoplay muted playsinline src="./media/videos/self-improve-video-comparisons/sock_compare/failure.mp4"></video></div>
+        <div class="column is-5"><video class="comparison-video after-video" autoplay muted playsinline src="./media/videos/self-improve-video-comparisons/sock_compare/succ1.mp4"></video></div>
+      </div>
+
+      <!-- sponge -->
+      <p class="has-text-centered" style="font-weight:600; margin-bottom:0.4rem; color:#444;">Take Sponge &amp; Wipe Table</p>
+      <div class="columns is-centered" style="margin-bottom:0.5rem;">
+        <div class="column is-5"><video class="comparison-video" autoplay muted playsinline src="./media/videos/self-improve-video-comparisons/sponge_compare/failure.mp4"></video></div>
+        <div class="column is-5"><video class="comparison-video after-video" autoplay muted playsinline src="./media/videos/self-improve-video-comparisons/sponge_compare/succ1.mp4"></video></div>
+      </div>
+    </div>
+
+    <hr style="margin-bottom:2rem;">
 
     <!-- Robot selector -->
     <div class="has-text-centered" style="margin-bottom:1.5rem;">
