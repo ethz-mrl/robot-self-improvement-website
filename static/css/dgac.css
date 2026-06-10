@@ -213,6 +213,10 @@ a {
   font-size: 17px;
 }
 
+.results-intro {
+  text-align: left;
+}
+
 #subtask-player,
 .comparison-area {
   margin-top: 28px;
@@ -248,10 +252,14 @@ a {
 .comparison-video {
   display: block;
   width: 100%;
-  border: 1.5px solid var(--line) !important;
+  border: 2px solid #7566b5 !important;
   border-radius: 12px;
   background: #000;
   box-shadow: 0 4px 12px rgba(31, 28, 23, 0.13);
+}
+
+.comparison-video.after-video {
+  border-color: #4d9566 !important;
 }
 
 .robot-tabs {
@@ -325,6 +333,21 @@ hr {
 #Acknowledgement .content,
 #BibTeX .content {
   text-align: left;
+}
+
+#Acknowledgement {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+#Acknowledgement .section-tag.title {
+  margin-bottom: 1.25rem !important;
+}
+
+#Acknowledgement p {
+  margin-bottom: 0;
+  font-size: 12px;
+  line-height: 1.55;
 }
 
 .bibtex-code {
