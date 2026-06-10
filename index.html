@@ -179,16 +179,16 @@
       <!-- 4 videos side by side -->
       <div class="columns is-centered is-variable is-2">
         <div class="column is-3">
-          <video id="st-failure" class="comparison-video" autoplay muted loop playsinline></video>
+          <video id="st-failure" class="comparison-video" autoplay muted playsinline></video>
         </div>
         <div class="column is-3">
-          <video id="st-succ1" class="comparison-video after-video" autoplay muted loop playsinline></video>
+          <video id="st-succ1" class="comparison-video after-video" autoplay muted playsinline></video>
         </div>
         <div class="column is-3">
-          <video id="st-succ2" class="comparison-video after-video" autoplay muted loop playsinline></video>
+          <video id="st-succ2" class="comparison-video after-video" autoplay muted playsinline></video>
         </div>
         <div class="column is-3">
-          <video id="st-succ3" class="comparison-video after-video" autoplay muted loop playsinline></video>
+          <video id="st-succ3" class="comparison-video after-video" autoplay muted playsinline></video>
         </div>
       </div>
 
@@ -468,7 +468,6 @@ function loadSample(idx) {
 function setVideo(srcId, vidId, src) {
   const vidEl = document.getElementById(vidId);
   vidEl.src = src;
-  vidEl.loop = true;
   vidEl.load();
   vidEl.play().catch(() => {});
 }
