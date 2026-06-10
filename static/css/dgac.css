@@ -4,7 +4,7 @@
   --muted: #5f5b54;
   --line: #1b1b1b;
   --soft-line: #d9d3c8;
-  --before: #e9e4fb;
+  --before: #f7ded9;
   --after: #dcefe1;
 }
 
@@ -206,11 +206,11 @@ a {
 }
 
 #comparisons > .container {
-  max-width: 1120px !important;
+  max-width: 960px !important;
 }
 
 #comparisons p {
-  font-size: 17px;
+  font-size: 15px;
 }
 
 .results-intro {
@@ -233,7 +233,7 @@ a {
   border: 1px solid var(--line);
   border-radius: 0;
   font-family: "Roboto Mono", monospace;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.03em;
   text-transform: uppercase;
@@ -241,7 +241,7 @@ a {
 
 .before-label {
   background: var(--before);
-  color: #40366e;
+  color: #9f4034;
 }
 
 .after-label {
@@ -252,7 +252,7 @@ a {
 .comparison-video {
   display: block;
   width: 100%;
-  border: 2px solid #7566b5 !important;
+  border: 2px solid #e59285 !important;
   border-radius: 12px;
   background: #000;
   box-shadow: 0 4px 12px rgba(31, 28, 23, 0.13);
@@ -286,7 +286,7 @@ a {
 .robot-tab {
   padding: 9px 14px;
   border: 0;
-  font-size: 14px;
+  font-size: 11px;
 }
 
 .robot-tab + .robot-tab {
@@ -309,19 +309,19 @@ a {
 }
 
 .task-btn {
-  padding: 9px 13px;
-  font-size: 13px;
+  padding: 7px 10px;
+  font-size: 10px;
 }
 
 .nav-btn {
-  padding: 8px 14px;
-  font-size: 14px;
+  padding: 6px 11px;
+  font-size: 11px;
 }
 
 #st-task-label,
 #sample-counter {
   font-family: "Roboto Mono", monospace !important;
-  font-size: 14px !important;
+  font-size: 11px !important;
 }
 
 hr {
