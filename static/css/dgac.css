@@ -1,0 +1,108 @@
+/* DGAC project page — lavender theme */
+
+:root {
+  --accent:      #BAAEF3;
+  --accent-dark: #7b6ec7;
+  --accent-light:#f0eeff;
+  --before-bg:   #e8e4fb;
+  --before-fg:   #4a3d9a;
+  --after-bg:    #d6f0e0;
+  --after-fg:    #1a6b3c;
+}
+
+.dgac-accent { color: var(--accent-dark); }
+.dgac-name   { font-variant: small-caps; font-weight: 700; color: var(--accent-dark); }
+
+.navbar { border-bottom: 3px solid var(--accent); }
+
+.robot-tabs {
+  display: inline-flex;
+  gap: 0.4rem;
+  background: #ebe8fb;
+  border-radius: 2rem;
+  padding: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.robot-tab {
+  padding: 0.45rem 1.4rem;
+  border: none;
+  background: transparent;
+  border-radius: 2rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-family: 'Google Sans', sans-serif;
+  color: #4a3d9a;
+  transition: background 0.18s, color 0.18s;
+}
+
+.robot-tab.active {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(186,174,243,0.45);
+}
+
+.task-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.task-btn {
+  padding: 0.4rem 1rem;
+  border: 1.5px solid #c8bef0;
+  background: #fff;
+  border-radius: 1.5rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-family: 'Google Sans', sans-serif;
+  color: #555;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.task-btn:hover  { border-color: var(--accent); color: var(--accent-dark); }
+.task-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+
+#comparisons { background: #f8f7ff; }
+
+.method-label {
+  display: inline-block;
+  padding: 0.25rem 0.9rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: 'Google Sans', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.before-label { background: var(--before-bg); color: var(--before-fg); }
+.after-label  { background: var(--after-bg);  color: var(--after-fg);  }
+
+.comparison-video {
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid #c8bef0;
+  display: block;
+  background: #000;
+}
+
+.comparison-video.after-video {
+  border-color: var(--after-bg);
+}
+
+.nav-btn {
+  padding: 0.35rem 1rem;
+  border: 1.5px solid #c8bef0;
+  background: #fff;
+  border-radius: 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: 'Google Sans', sans-serif;
+  color: #555;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.nav-btn:hover { border-color: var(--accent); background: var(--accent-light); }
