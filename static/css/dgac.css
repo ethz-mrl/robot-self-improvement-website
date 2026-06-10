@@ -1,140 +1,445 @@
-/* DGAC project page — lavender theme */
-
 :root {
-  --accent:      #BAAEF3;
-  --accent-dark: #7b6ec7;
-  --accent-light:#f0eeff;
-  --before-bg:   #e8e4fb;
-  --before-fg:   #4a3d9a;
-  --after-bg:    #d6f0e0;
-  --after-fg:    #1a6b3c;
+  --paper: #fdfaf4;
+  --ink: #1b1b1b;
+  --muted: #5f5b54;
+  --line: #1b1b1b;
+  --soft-line: #d9d3c8;
+  --before: #e9e4fb;
+  --after: #dcefe1;
 }
 
-.dgac-accent { color: var(--accent-dark); }
-.dgac-name   { font-variant: small-caps; font-weight: 700; color: var(--accent-dark); }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 24px;
+}
 
-.navbar { border-bottom: 3px solid var(--accent); }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+}
+
+a {
+  color: inherit;
+}
+
+.container.is-max-desktop {
+  max-width: 960px !important;
+}
+
+.publication-hero .hero-body {
+  padding: 4.5rem 1.5rem 2rem;
+}
+
+.publication-hero .has-text-centered,
+.publication-hero .publication-actions {
+  text-align: left !important;
+}
+
+.eyebrow,
+.publication-venue {
+  display: inline-block;
+  font-family: "Roboto Mono", monospace;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  margin-bottom: 18px;
+  padding: 7px 11px;
+  color: #fff;
+  background: #000;
+}
+
+.publication-title.title {
+  max-width: 900px;
+  margin-bottom: 18px !important;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3rem, 7vw, 5.2rem);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  color: var(--ink);
+}
+
+.publication-venue {
+  margin-bottom: 24px;
+  color: var(--muted);
+}
+
+.publication-authors,
+.publication-authors a {
+  font-family: "Roboto Mono", monospace;
+  font-size: 13px !important;
+  line-height: 1.75;
+  color: #333 !important;
+}
+
+.publication-authors a:hover {
+  color: #000 !important;
+}
+
+.publication-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.publication-links .button.is-dark {
+  height: auto;
+  padding: 8px 13px;
+  background: transparent;
+  border: 1.5px solid var(--line);
+  border-radius: 0;
+  color: var(--ink);
+  font-family: "Roboto Mono", monospace;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: none;
+}
+
+.publication-links .button.is-dark:hover {
+  background: #000;
+  color: #fff;
+}
+
+.teaser .hero-body {
+  padding: 0 1.5rem 3rem;
+}
+
+#teaser {
+  display: block;
+  width: 100%;
+  border: 1.5px solid var(--line);
+  border-radius: 15px;
+  background: #000;
+}
+
+.teaser-caption,
+.section p,
+.content p {
+  font-family: "Roboto Mono", monospace;
+  color: var(--muted);
+}
+
+.teaser-caption {
+  max-width: 900px;
+  margin: 14px auto 0;
+  padding: 0 20px;
+  font-size: 13px !important;
+  line-height: 1.65;
+}
+
+.section {
+  padding: 3rem 1.5rem;
+}
+
+.section + .section {
+  border-top: 1px solid var(--soft-line);
+}
+
+.section-tag.title,
+.subsection-tag.title {
+  display: table;
+  width: auto;
+  height: auto;
+  color: #fff;
+  background: #000;
+  border-radius: 0;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+.section-tag.title {
+  margin: 0 0 2rem !important;
+  padding: 8px 16px;
+  font-size: 24px;
+}
+
+.subsection-tag.title {
+  margin: 3rem 0 1rem !important;
+  padding: 7px 14px;
+  font-size: 17px;
+}
+
+.has-text-justified {
+  text-align: left !important;
+}
+
+.content p,
+.section p {
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+#abstract .column.is-four-fifths {
+  width: 100%;
+}
+
+.publication-video {
+  border: 1.5px solid var(--line);
+  border-radius: 15px !important;
+  box-shadow: 0 8px 25px rgba(31, 28, 23, 0.12);
+}
+
+#method img {
+  display: block;
+  width: 100% !important;
+  margin: 22px 0 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 15px !important;
+  background: #fff;
+}
+
+#method .has-text-centered {
+  text-align: left !important;
+}
+
+#comparisons {
+  overflow: hidden;
+}
+
+#comparisons > .container {
+  max-width: 1120px !important;
+}
+
+#comparisons p {
+  font-size: 17px;
+}
+
+#subtask-player,
+.comparison-area {
+  margin-top: 28px;
+  padding: 20px;
+  border: 1.5px solid var(--line);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.44);
+  box-shadow: 0 8px 25px rgba(31, 28, 23, 0.08);
+}
+
+.method-label {
+  display: inline-block;
+  padding: 5px 9px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  font-family: "Roboto Mono", monospace;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.before-label {
+  background: var(--before);
+  color: #40366e;
+}
+
+.after-label {
+  background: var(--after);
+  color: #225d35;
+}
+
+.comparison-video {
+  display: block;
+  width: 100%;
+  border: 1.5px solid var(--line) !important;
+  border-radius: 12px;
+  background: #000;
+  box-shadow: 0 4px 12px rgba(31, 28, 23, 0.13);
+}
 
 .robot-tabs {
   display: inline-flex;
-  gap: 0.4rem;
-  background: #ebe8fb;
-  border-radius: 2rem;
-  padding: 0.3rem;
-  margin-bottom: 0.5rem;
+  gap: 0;
+  padding: 0;
+  border: 1.5px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+}
+
+.robot-tab,
+.task-btn,
+.nav-btn {
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: "Roboto Mono", monospace;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
 }
 
 .robot-tab {
-  padding: 0.45rem 1.4rem;
-  border: none;
-  background: transparent;
-  border-radius: 2rem;
-  font-size: 0.95rem;
-  cursor: pointer;
-  font-family: 'Google Sans', sans-serif;
-  color: #4a3d9a;
-  transition: background 0.18s, color 0.18s;
+  padding: 9px 14px;
+  border: 0;
+  font-size: 14px;
 }
 
-.robot-tab.active {
-  background: var(--accent);
+.robot-tab + .robot-tab {
+  border-left: 1px solid var(--line);
+}
+
+.robot-tab.active,
+.task-btn.active,
+.nav-btn:hover {
+  background: #000;
   color: #fff;
-  font-weight: 600;
-  box-shadow: 0 2px 8px rgba(186,174,243,0.45);
+  box-shadow: none;
 }
 
 .task-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
   justify-content: center;
-  margin-bottom: 0.5rem;
+  gap: 7px;
 }
 
 .task-btn {
-  padding: 0.4rem 1rem;
-  border: 1.5px solid #c8bef0;
-  background: #fff;
-  border-radius: 1.5rem;
-  font-size: 0.85rem;
-  cursor: pointer;
-  font-family: 'Google Sans', sans-serif;
-  color: #555;
-  transition: border-color 0.15s, background 0.15s, color 0.15s;
-}
-
-.task-btn:hover  { border-color: var(--accent); color: var(--accent-dark); }
-.task-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
-
-#comparisons { background: #f8f7ff; }
-
-.method-label {
-  display: inline-block;
-  padding: 0.25rem 0.9rem;
-  border-radius: 1rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  font-family: 'Google Sans', sans-serif;
-  letter-spacing: 0.02em;
-}
-
-.before-label { background: var(--before-bg); color: var(--before-fg); }
-.after-label  { background: var(--after-bg);  color: var(--after-fg);  }
-
-.comparison-video {
-  width: 100%;
-  border-radius: 10px;
-  border: 2px solid #c8bef0;
-  display: block;
-  background: #000;
-}
-
-.comparison-video.after-video {
-  border-color: var(--after-bg);
+  padding: 9px 13px;
+  font-size: 13px;
 }
 
 .nav-btn {
-  padding: 0.35rem 1rem;
-  border: 1.5px solid #c8bef0;
-  background: #fff;
-  border-radius: 1rem;
-  font-size: 0.9rem;
-  cursor: pointer;
-  font-family: 'Google Sans', sans-serif;
-  color: #555;
-  transition: border-color 0.15s, background 0.15s;
+  padding: 8px 14px;
+  font-size: 14px;
 }
 
-.nav-btn:hover { border-color: var(--accent); background: var(--accent-light); }
+#st-task-label,
+#sample-counter {
+  font-family: "Roboto Mono", monospace !important;
+  font-size: 14px !important;
+}
 
-/* Side navigation */
+hr {
+  height: 1px;
+  background: var(--soft-line);
+  border: 0;
+}
+
+#Acknowledgement .content,
+#BibTeX .content {
+  text-align: left;
+}
+
+.bibtex-code {
+  padding: 24px;
+  border-radius: 8px;
+  background: rgba(35, 35, 35, 0.88);
+  color: #f5f1e9;
+}
+
+.bibtex-code .title {
+  color: #fff;
+  font-family: "Roboto Mono", monospace;
+  font-size: 18px;
+}
+
+.bibtex-code pre {
+  padding: 0;
+  overflow-x: auto;
+  background: transparent;
+  color: #f5f1e9;
+}
+
+.bibtex-code code {
+  font-family: "Roboto Mono", monospace;
+  font-size: 12px;
+}
+
+.footer {
+  padding: 2rem 1.5rem;
+  border-top: 1px solid var(--soft-line);
+  background: var(--paper);
+}
+
+.footer p,
+.footer a {
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px;
+  color: var(--muted);
+}
+
 #side-nav {
   position: fixed;
-  left: 1.5rem;
-  top: 50vh;
-  margin-top: -7rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  z-index: 9999;
+  top: 220px;
+  left: max(30px, calc(25vw - 330px));
+  z-index: 90;
+  display: none;
+  width: 175px;
+  font-family: "Roboto Mono", monospace;
+}
+
+#side-nav strong {
+  display: block;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--soft-line);
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
 }
 
 #side-nav a {
-  font-family: 'Google Sans', sans-serif;
-  font-size: 0.8rem;
-  color: #888;
+  display: block;
+  padding: 5px 0;
+  border: 0;
+  color: var(--muted);
+  font-size: 14px;
   text-decoration: none;
-  padding: 0.3rem 0.6rem;
-  border-left: 2px solid #ddd;
-  transition: color 0.15s, border-color 0.15s;
-  white-space: nowrap;
 }
 
 #side-nav a:hover,
 #side-nav a.active {
-  color: var(--accent-dark);
-  border-left-color: var(--accent);
-  font-weight: 600;
+  color: #000;
+  font-weight: 700;
+  text-decoration: underline;
 }
 
-@media (max-width: 900px) { #side-nav { display: none; } }
+@media (min-width: 1400px) {
+  #side-nav {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .publication-hero .hero-body {
+    padding-top: 3rem;
+  }
+
+  .publication-title.title {
+    font-size: clamp(2.6rem, 13vw, 4rem);
+  }
+
+  .section {
+    padding: 2.5rem 1rem;
+  }
+
+  #subtask-player,
+  .comparison-area {
+    padding: 12px;
+  }
+
+  #subtask-player .columns {
+    display: flex;
+    overflow-x: auto;
+  }
+
+  #subtask-player .column {
+    min-width: 70vw;
+  }
+
+  .robot-tabs {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .robot-tab + .robot-tab {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+}

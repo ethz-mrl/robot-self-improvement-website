@@ -8,10 +8,9 @@
   <title> Robot Self-Improvement via Human-Video Dynamics Models</title>
 
   <link rel="icon" href="./static/images/freunde.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="stylesheet" href="./static/css/dgac.css">
@@ -22,26 +21,17 @@
 </head>
 <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://hanzhic.github.io/">
-        <span class="icon"><i class="fas fa-home"></i></span>
-      </a>
-    </div>
-  </div>
-</nav>
-
-<section class="hero">
+<section class="hero publication-hero" id="top">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
+          <div class="eyebrow">Robot learning from human-video priors</div>
           <h1 class="title is-1 publication-title">
-            Robot Self-Improvement via<br>
+            Robot Self-Improvement via
             Human-Video Dynamics Models
           </h1>
-          <h1 class="title is-4 publication-title" style="color:#555; font-weight:500;">ArXiv 2026</h1>
+          <div class="publication-venue">ArXiv 2026</div>
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><a href="https://hanzhic.github.io/">Hanzhi Chen</a><sup>*,1,2,4</sup>,</span>
@@ -65,7 +55,7 @@
             <span class="author-block"><sup>4</sup>MCML</span>
           </div>
 
-          <div class="column has-text-centered">
+          <div class="column publication-actions">
             <div class="publication-links">
               <span class="link-block">
                 <a href="#" class="external-link button is-normal is-rounded is-dark">
@@ -102,7 +92,7 @@
       <video id="teaser" autoplay muted loop playsinline height="100%">
         <source src="./media/video-teaser.mp4" type="video/mp4">
       </video>
-      <h2 class="subtitle has-text-centered" style="margin-top:1rem;">
+      <h2 class="subtitle teaser-caption">
         Our method uses human-video priors to autonomously correct robot failures, improving success rates from 40% to 81% across seven real-world tasks on both mobile and static manipulators — without any human intervention
       </h2>
     </div>
@@ -114,7 +104,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3 section-tag">Abstract</h2>
         <div class="content has-text-justified">
           <p>
             A central question in robot learning is how to acquire skills from the kinds of data that
@@ -136,7 +126,6 @@
 
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
         <div class="publication-video">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/ZW3ZHjrllJA?si=FzcHmbPWw3O3sP1q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
@@ -146,16 +135,16 @@
 </section>
 
 <!-- Method -->
-<section class="section" id="method" style="background:#f3f2fb;">
+<section class="section" id="method">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Method</h2>
+        <h2 class="title is-3 section-tag">Method</h2>
         <img src="./media/images/pipeline.png" alt="general Pipeline" style="width:100%; border-radius:8px;">
         <p>
           We pretrain reusable policy, dynamics, and value models from human videos, enabling iterative robot policy self-improvement in the real world.
         </p>
-         <h3 class="title is-4" style="margin-top:2.5rem;">Dynamics-Guided Action Correction (DGAC)</h3>
+         <h3 class="title is-4 subsection-tag">Dynamics-Guided Action Correction (DGAC)</h3>
         <p>
           DGAC converts failed states into corrective supervision. Using the learned dynamics and value models, it ranks candidate actions and selects the best correction — without any human intervention.
         </p>
@@ -169,9 +158,9 @@
 
 
 <!-- Comparison Videos -->
-<section class="section" id="comparisons" style="background:#f8f9fb;">
+<section class="section" id="comparisons">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Self-Improvement Results</h2>
+    <h2 class="title is-3 section-tag">Self-Improvement Results</h2>
     <p class="has-text-centered" style="margin-bottom:2rem; color:#555;">
       Each pair shows <strong>Before Self-Improvement</strong> (left) vs. <strong>After Self-Improvement</strong> (right) using proposed DGAC module.
        Repeated trials show that self-improvement converts initial failures into consistent task success across different embodiments. 
@@ -191,24 +180,23 @@
       <!-- 4 videos side by side -->
       <div class="columns is-centered is-variable is-2">
         <div class="column is-3">
-          <video id="st-failure" class="comparison-video" autoplay muted playsinline
-                 style="border-width:3px; border-color:#BAAEF3;"></video>
+          <video id="st-failure" class="comparison-video" autoplay muted loop playsinline></video>
         </div>
         <div class="column is-3">
-          <video id="st-succ1" class="comparison-video after-video" autoplay muted playsinline style="border-width:3px;"></video>
+          <video id="st-succ1" class="comparison-video after-video" autoplay muted loop playsinline></video>
         </div>
         <div class="column is-3">
-          <video id="st-succ2" class="comparison-video after-video" autoplay muted playsinline style="border-width:3px;"></video>
+          <video id="st-succ2" class="comparison-video after-video" autoplay muted loop playsinline></video>
         </div>
         <div class="column is-3">
-          <video id="st-succ3" class="comparison-video after-video" autoplay muted playsinline style="border-width:3px;"></video>
+          <video id="st-succ3" class="comparison-video after-video" autoplay muted loop playsinline></video>
         </div>
       </div>
 
       <!-- Task nav at bottom -->
       <div class="has-text-centered" style="margin-top:1rem;">
         <button class="nav-btn" onclick="stGoTask((stTask-1+ST_TASKS.length)%ST_TASKS.length)">&#8592; Prev</button>
-        <span id="st-task-label" style="margin:0 1rem; font-family:'Google Sans',sans-serif; font-weight:600; color:#444;">Open Ricecooker</span>
+        <span id="st-task-label" style="margin:0 1rem; font-weight:600; color:#444;">Open Ricecooker</span>
         <button class="nav-btn" onclick="stGoTask((stTask+1)%ST_TASKS.length)">Next &#8594;</button>
       </div>
 
@@ -289,9 +277,9 @@
 </section>
 
 <!-- Acknowledgement -->
-<section class="section" id="Acknowledgement" style="background:#f3f2fb;">
+<section class="section" id="Acknowledgement">
   <div class="container is-max-desktop content">
-    <h2 class="title">Acknowledgement</h2>
+    <h2 class="title section-tag">Acknowledgement</h2>
     <p>
       This work was supported by the Technical University of Munich (TUM) and the State of Bavaria through the REACT project, 
       the TUM Georg Nemetschek Institute via the SPAICR project, Munich Center for Machine Learning (MCML) and ETH Zurich. 
@@ -302,8 +290,8 @@
 
 
 <!-- BibTeX -->
-<section class="section" id="BibTeX" style="background:#f3f2fb;">
-  <div class="container is-max-desktop content">
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content bibtex-code">
     <h2 class="title">BibTeX</h2>
     <pre><code>@inproceedings{ChenZhang2026RobotSelfImprovement,
   title     = {Robot Self-Improvement via Human-Video Dynamics Models},
@@ -323,7 +311,7 @@
           <p>
             This website is licensed under a
             <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license.
-            Template based on <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+            Design adapted from <a href="https://github.com/videomimic-1/videomimic-1.github.io">VideoMimic</a>.
           </p>
         </div>
       </div>
@@ -359,8 +347,6 @@ function stClips(t) {
 }
 
 let stTask = 0;
-const FAILURE_COLOR = '#BAAEF3';
-
 function stLoad(taskIdx) {
   stTask = taskIdx;
   const t = ST_TASKS[taskIdx];
@@ -483,6 +469,7 @@ function loadSample(idx) {
 function setVideo(srcId, vidId, src) {
   const vidEl = document.getElementById(vidId);
   vidEl.src = src;
+  vidEl.loop = true;
   vidEl.load();
   vidEl.play().catch(() => {});
 }
@@ -500,7 +487,7 @@ function switchRobot(robot, btn) {
     document.querySelectorAll('#franka-tasks .task-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
   } else {
     currentTask = 'open_the_ricecooker_and_put_food_inside';
-    document.querySelectorAll('#stretch-tasks .task-btn').forEach((b, i) => b.classList.toggle('active', i === 1));
+    document.querySelectorAll('#stretch-tasks .task-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
   }
   currentIdx = 0;
   loadSample(0);
@@ -523,6 +510,7 @@ document.addEventListener('DOMContentLoaded', () => { stLoad(0); loadSample(0); 
 
 <!-- Side navigation -->
 <div id="side-nav">
+  <strong>Content</strong>
   <a href="#abstract">Abstract</a>
   <a href="#method">Method</a>
   <a href="#comparisons">Results</a>
