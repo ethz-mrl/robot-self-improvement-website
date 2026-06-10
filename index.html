@@ -32,7 +32,14 @@
   </div>
 </nav>
 
-<!-- Hero / Title -->
+<!-- Side navigation -->
+<nav id="side-nav">
+  <a href="#abstract">Abstract</a>
+  <a href="#method">Method</a>
+  <a href="#comparisons">Results</a>
+  <a href="#Acknowledgement">Acknowledgement</a>
+  <a href="#BibTeX">BibTeX</a>
+</nav>
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
@@ -113,7 +120,7 @@
 </section>
 
 <!-- Abstract + Video -->
-<section class="section">
+<section class="section" id="abstract">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -149,7 +156,7 @@
 </section>
 
 <!-- Method -->
-<section class="section" style="background:#f8f7ff;">
+<section class="section" id="method" style="background:#f8f7ff;">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
@@ -284,6 +291,19 @@
   </div>
 </section>
 
+<!-- Acknowledgement -->
+<section class="section" id="Acknowledgement">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Acknowledgement</h2>
+    <p>
+      This work was supported by the Technical University of Munich (TUM) and the State of Bavaria through the REACT project, 
+      the TUM Georg Nemetschek Institute via the SPAICR project, Munich Center for Machine Learning (MCML) and ETH Zurich. 
+      We thank Helen Oleynikova for her support during the initial phase of the project.
+    </p>
+  </div>
+</section>
+
+
 <!-- BibTeX -->
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
@@ -318,7 +338,7 @@
 // ─── Subtask player ───────────────────────────────────────────────────────────
 const ST_BASE = './media/videos/self-improve-video-comparisons';
 const ST_TASKS = [
-  { label: 'Open Rice Cooker', dir: 'kitchen_compare',  prefix: '' },
+  { label: 'Open Ricecooker', dir: 'kitchen_compare',  prefix: '' },
   { label: 'Open Microwave',   dir: 'microwave_compare', prefix: '' },
   { label: 'Put Socks in Drawer', dir: 'sock_compare',  prefix: 'failure_cut|succ1_cut|succ2_cut|succ3_cut' },
   { label: 'Wipe Table',       dir: 'sponge_compare',   prefix: '' },
