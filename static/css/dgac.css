@@ -111,12 +111,12 @@
 #side-nav {
   position: fixed;
   left: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 50vh;
+  margin-top: -7rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  z-index: 100;
+  z-index: 9999;
 }
 
 #side-nav a {
@@ -137,4 +137,4 @@
   font-weight: 600;
 }
 
-@media (max-width: 1200px) { #side-nav { display: none; } }
+@media (max-width: 900px) { #side-nav { display: none; } }
