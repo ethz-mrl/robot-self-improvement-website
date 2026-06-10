@@ -56,8 +56,8 @@
             <span class="author-block"><a href="https://dipan-zhang.github.io/">Anran Zhang</a><sup>*,1,2,4</sup>,</span>
             <span class="author-block"><a href="https://simon-schaefer.github.io/">Simon Schaefer</a><sup>1,2,4</sup>,</span>
             <span class="author-block"><a href="https://www.ce.cit.tum.de/air/people/kejia-chen-msc/">Kejia Chen</a><sup>2</sup>,</span>
-            <br>
             <span class="author-block"><a href="https://scholar.google.com/citations?user=rAO6AHsAAAAJ">Shi Chen</a><sup>1</sup>,</span>
+            <br>
             <span class="author-block"><a href="https://scholar.google.com/citations?user=cXQciMEAAAAJ">Daniel Cremers</a><sup>2,4</sup>,</span>
             <span class="author-block"><a href="https://www.oiermees.com/">Oier Mees</a><sup>†,1,3</sup>,</span>
             <span class="author-block"><a href="https://scholar.google.ch/citations?user=SmGQ48gAAAAJ">Stefan Leutenegger</a><sup>†,1</sup></span>
@@ -110,10 +110,7 @@
         <source src="./media/video-teaser.mp4" type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered" style="margin-top:1rem;">
-        <span class="dgac-name">DGAC</span> uses human-video priors to
-        <strong>autonomously correct robot failures</strong>,
-        improving success rates from 40% to 81% across seven real-world tasks
-        on <em>both mobile and static manipulators</em> — without any human intervention.
+        Our method uses human-video priors to autonomously correct robot failures, improving success rates from 40% to 81% across seven real-world tasks on both mobile and static manipulators — without any human intervention
       </h2>
     </div>
   </div>
@@ -156,15 +153,22 @@
 </section>
 
 <!-- Method -->
-<section class="section" id="method" style="background:#f8f7ff;">
+<section class="section" id="method" style="background:#f3f2fb;">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Method</h2>
-        <img src="./media/images/pipeline.png" alt="DGAC Pipeline" style="width:100%; border-radius:8px;">
+        <img src="./media/images/pipeline.png" alt="general Pipeline" style="width:100%; border-radius:8px;">
         <p>
-          Overview of our framework. We first pretrain reusable policy, dynamics, and value models from human videos, which then enable iterative robot policy self-improvement in the real world.
+          We pretrain reusable policy, dynamics, and value models from human videos, enabling iterative robot policy self-improvement in the real world.
         </p>
+         <h3 class="title is-4" style="margin-top:2.5rem;">Dynamics-Guided Action Correction (DGAC)</h3>
+        <p>
+          DGAC converts failed states into corrective supervision. Using the learned dynamics and value models, it ranks candidate actions and selects the best correction — without any human intervention.
+        </p>
+        <img src="./media/images/DGAC.png" alt="DGAC Pipeline" style="width:100%; border-radius:8px;">
+        <p>Given a failed state, DGAC samples candidate corrective actions (colorful trajectories), predicts their future states and values, and selects the highest-value proposal (green) as the corrective action, adding it to the repair dataset for policy supervision.
+   </p>
       </div>
     </div>
   </div>
@@ -292,7 +296,7 @@
 </section>
 
 <!-- Acknowledgement -->
-<section class="section" id="Acknowledgement">
+<section class="section" id="Acknowledgement" style="background:#f3f2fb;">
   <div class="container is-max-desktop content">
     <h2 class="title">Acknowledgement</h2>
     <p>
@@ -305,7 +309,7 @@
 
 
 <!-- BibTeX -->
-<section class="section" id="BibTeX">
+<section class="section" id="BibTeX" style="background:#f3f2fb;">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@inproceedings{ChenZhang2026RobotSelfImprovement,
