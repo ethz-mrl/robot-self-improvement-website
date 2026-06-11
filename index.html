@@ -588,7 +588,7 @@ document.querySelectorAll('.result-table-card').forEach(card => {
       const value = Number(column.dataset.value);
       const difference = value - ours;
       const comparison = difference === 0
-        ? 'matches Ours'
+        ? ''
         : `${Math.abs(difference).toFixed(1)} points ${difference > 0 ? 'above' : 'below'} Ours`;
 
       summary.innerHTML = `<strong class="summary-method">${method}:</strong> ${value.toFixed(1)}% average success rate · ${comparison}.`;
