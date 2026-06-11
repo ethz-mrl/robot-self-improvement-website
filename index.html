@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title> Robot Self-Improvement via Human-Video Dynamics Models</title>
 
-  <link rel="icon" href="./static/images/freunde.png" type="image/png">
+  <link rel="icon" href="./static/images/technology.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
@@ -26,7 +26,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <div class="eyebrow">Human video can support autonomous self-improvement</div>
+          <div class="eyebrow">Human video priors are not just for imitation</div>
           <h1 class="title is-1 publication-title">
             Robot Self-Improvement via Human-Video Dynamics Models
           </h1>
@@ -40,7 +40,7 @@
             <span class="author-block"><a href="https://scholar.google.com/citations?user=rAO6AHsAAAAJ">Shi Chen</a><sup>1</sup>,</span>
             <br>
             <span class="author-block"><a href="https://scholar.google.com/citations?user=cXQciMEAAAAJ">Daniel Cremers</a><sup>2,4</sup>,</span>
-            <span class="author-block"><a href="https://www.oiermees.com/">Oier Mees</a><sup>†,1,3</sup>,</span>
+            <span class="author-block"><a href="https://www.oiermees.com/">Oier Mees</a><sup>†,3,1</sup>,</span>
             <span class="author-block"><a href="https://scholar.google.ch/citations?user=SmGQ48gAAAAJ">Stefan Leutenegger</a><sup>†,1</sup></span>
           </div>
 
@@ -92,7 +92,8 @@
         <source src="./media/video-teaser.mp4" type="video/mp4">
       </video>
       <h2 class="subtitle teaser-caption">
-        Our method uses human-video priors to autonomously correct robot failures, improving success rates from 40% to 81% across seven real-world tasks on both mobile and static manipulators — without any human intervention
+        We leverage policy, dynamics, and value models pre-trained on human videos to enable autonomous failure correction, 
+        boosting success rates from 40% to 81% across seven real-world tasks on both mobile and stationary manipulators—without human intervention.     
       </h2>
     </div>
   </div>
@@ -108,6 +109,10 @@
           <p>
             A central question in robot learning is how to acquire skills from the kinds of data that
             humans learn from: passive observation, embodied practice, and the experience of failure.
+            Human videos provide the first of these in abundance, and prior work has shown they can 
+            initialize useful policies. Far less clear is whether they can support the second and third: 
+            whether priors extracted from human videos can ground a robot's own attempts well enough to evaluate them, 
+            correct them, and improve from them.             
             In this work, we show that human videos can be used to learn embodiment-agnostic action,
             dynamics, and value representations that transfer across robot embodiments, providing the
             predictive foundation for robots to autonomously improve from their own rollouts and failures.
@@ -141,14 +146,26 @@
         <h2 class="title is-3 section-tag">Method</h2>
         <img src="./media/images/pipeline.png" alt="general Pipeline" style="width:100%; border-radius:8px;">
         <p>
-          We pretrain reusable policy, dynamics, and value models from human videos, enabling iterative robot policy self-improvement in the real world.
+          <strong>Left:</strong> 
+          We pretrain shared policy, dynamics, and value representations from human videos to support cross-embodiment robot self-improvement. 
+          The policy model predicts wrist actions represented by a 6-DoF pose and a hand-closure variable. 
+          The dynamics model forecasts action-conditioned world states represented by DINO-v3 visual features and 3D point trajectories. 
+          The value model learns an embodiment-agnostic progress representation that estimates a state's proximity to task success.
+        </p>
+
+        <p>
+          <strong>Right:</strong> Building on these pretrained models, we develop a self-improvement pipeline that learns from autonomous robot experience. 
+          Successful and failed rollouts are used to adapt the dynamics and value models, while <strong>Dynamics-Guided Action Correction (DGAC)</strong> converts recoverable failures into corrective supervision. 
+          The resulting trajectories are then used for policy improvement through advantage-conditioned policy extraction, enabling continual learning without human intervention.
         </p>
          <h3 class="title is-4 subsection-tag">Dynamics-Guided Action Correction (DGAC)</h3>
         <p>
-          DGAC converts failed states into corrective supervision. Using the learned dynamics and value models, it ranks candidate actions and selects the best correction — without any human intervention.
+          DGAC converts failed states into corrective supervision. It uses the learned dynamics and value models to rank candidate actions and identify the best correction for 
+          near-failure but recoverable states, without human intervention.
         </p>
         <img src="./media/images/DGAC.png" alt="DGAC Pipeline" style="width:100%; border-radius:8px;">
-        <p>Given a failed state, DGAC samples candidate corrective actions (colorful trajectories), predicts their future states and values, and selects the highest-value proposal (green) as the corrective action, adding it to the repair dataset for policy supervision.
+        <p>Given a failed state, DGAC samples candidate corrective actions (colorful trajectories), predicts their future states and values, and selects the highest-value 
+           proposal (green) as the corrective action, adding it to the repair dataset for policy supervision.
    </p>
       </div>
     </div>
@@ -260,7 +277,7 @@
         </div>
       </div>
 
-      <!-- For stretch we show gripper + head views -->
+      <!-- For stretch we show gripper views -->
       <div id="stretch-view-label" style="display:none;" class="has-text-centered" style="margin-bottom:0.5rem;">
         <small style="color:#777;">Left: gripper cam &nbsp;|&nbsp; Right: head cam</small>
       </div>
