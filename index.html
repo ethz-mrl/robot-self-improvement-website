@@ -204,22 +204,22 @@
           <span>Average success rate (%)</span>
         </div>
         <div class="policy-result-layout">
+          <div class="result-chart policy-chart" role="group" aria-label="Policy-agnostic average success rates">
+            <a class="result-column tone-2" data-value="62.7" data-policy-highlight="sft" href="#comparisons"><strong>62.7</strong><span class="column-track"><i style="height:62.7%"></i></span><span class="column-label"><span class="pi-model">π<span class="pi-sub">0.5</span></span><span class="method-plus">+</span>SFT</span></a>
+            <a class="result-column tone-4" data-value="68.0" data-policy-highlight="recap" href="#comparisons"><strong>68.0</strong><span class="column-track"><i style="height:68%"></i></span><span class="column-label"><span class="pi-model">π<span class="pi-sub">0.5</span></span><span class="method-plus">+</span>RECAP<sup>†</sup></span></a>
+            <a class="result-column dgac-column" data-value="88.0" data-policy-highlight="dgac" href="#comparisons"><strong>88.0</strong><span class="column-track"><i style="height:88%"></i></span><span class="column-label"><span class="pi-model">π<span class="pi-sub">0.5</span></span><span class="method-plus">+</span>DGAC</span></a>
+            <a class="result-column ours-column active" data-value="85.3" data-policy-highlight="ours" href="#comparisons"><strong>85.3</strong><span class="column-track"><i style="height:85.3%"></i></span><span class="column-label">Ours</span></a>
+          </div>
           <div class="policy-findings">
             <ul>
-              <li>Supervised fine-tuning (SFT) provides a strong starting point through large-scale robot pretraining.</li>
-              <li>RECAP<sup>†</sup> without human corrections yields only <strong>+5.3%</strong>.</li>
-              <li>Our DGAC module delivers a substantial <strong>+25.3%</strong> improvement for 𝜋<sub>0.5</sub> + SFT. </li>
-              <li>Human-video priors and failure-to-supervision learning (Ours) nearly match heavily robot-pretrained policies (<strong>85.3% vs. 88.0%</strong>).</li>
+              <li data-policy-highlight="sft">Supervised fine-tuning (SFT) provides a strong starting point through large-scale robot pretraining.</li>
+              <li data-policy-highlight="recap">RECAP<sup>†</sup> without human corrections yields only <strong>+5.3%</strong>.</li>
+              <li data-policy-highlight="dgac">Our DGAC module delivers a substantial <strong>+25.3%</strong> improvement for 𝜋<sub>0.5</sub> + SFT. </li>
+              <li data-policy-highlight="ours">Human-video priors and failure-to-supervision learning (Ours) nearly match heavily robot-pretrained policies (<strong>85.3% vs. 88.0%</strong>).</li>
             </ul>
           </div>
-          <div class="result-chart policy-chart" role="group" aria-label="Policy-agnostic average success rates">
-            <a class="result-column tone-2" data-value="62.7" href="#comparisons"><strong>62.7</strong><span class="column-track"><i style="height:62.7%"></i></span><span class="column-label"><span class="pi-model">π<span class="pi-sub">0.5</span></span><span class="method-plus">+</span>SFT</span></a>
-            <a class="result-column tone-4" data-value="68.0" href="#comparisons"><strong>68.0</strong><span class="column-track"><i style="height:68%"></i></span><span class="column-label"><span class="pi-model">π<span class="pi-sub">0.5</span></span><span class="method-plus">+</span>RECAP<sup>†</sup></span></a>
-            <a class="result-column dgac-column" data-value="88.0" href="#comparisons"><strong>88.0</strong><span class="column-track"><i style="height:88%"></i></span><span class="column-label"><span class="pi-model">π<span class="pi-sub">0.5</span></span><span class="method-plus">+</span>DGAC</span></a>
-            <a class="result-column ours-column active" data-value="85.3" href="#comparisons"><strong>85.3</strong><span class="column-track"><i style="height:85.3%"></i></span><span class="column-label">Ours</span></a>
-          </div>
         </div>
-        <p class="result-caption">Our framework also generalizes to a pretrained policy backbone (<a href="https://www.pi.website/blog/pi05" target="_blank" rel="noopener noreferrer">𝜋<sub>0.5</sub></a>).</p>
+        <p class="result-caption">Our framework also generalizes to a different policy backbone (<a class="caption-highlight-link" href="https://www.pi.website/blog/pi05" target="_blank" rel="noopener noreferrer">𝜋<sub>0.5</sub></a>).</p>
       </div>
     </div>
 
@@ -578,11 +578,17 @@ document.addEventListener('DOMContentLoaded', () => {
 document.querySelectorAll('.result-table-card').forEach(card => {
   const ours = Number(card.dataset.ours);
   const summary = card.querySelector('.result-table-summary');
+  const policyFindings = card.querySelectorAll('.policy-findings [data-policy-highlight]');
 
   card.querySelectorAll('.result-column').forEach(column => {
     const updateSummary = () => {
       card.querySelectorAll('.result-column').forEach(item => item.classList.remove('active'));
       column.classList.add('active');
+
+      const highlightTarget = column.dataset.policyHighlight;
+      policyFindings.forEach(item => {
+        item.classList.toggle('is-highlighted', item.dataset.policyHighlight === highlightTarget);
+      });
 
       if (!summary) return;
 
@@ -601,7 +607,14 @@ document.querySelectorAll('.result-table-card').forEach(card => {
 
     column.addEventListener('mouseenter', updateSummary);
     column.addEventListener('focus', updateSummary);
-    column.addEventListener('click', updateSummary);
+    column.addEventListener('click', event => {
+      updateSummary();
+
+      if (column.hostname && column.hostname !== window.location.hostname) {
+        event.preventDefault();
+        window.open(column.href, '_blank', 'noopener,noreferrer');
+      }
+    });
   });
 });
 </script>

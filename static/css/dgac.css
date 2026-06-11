@@ -452,9 +452,26 @@ a {
   white-space: nowrap;
 }
 
+#comparisons .caption-highlight-link {
+  display: inline-block;
+  padding: 1px 5px 2px;
+  border-radius: 4px;
+  background: rgba(229, 146, 133, 0.16);
+  color: #9f463b;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#comparisons .caption-highlight-link:hover,
+#comparisons .caption-highlight-link:focus-visible {
+  background: rgba(229, 146, 133, 0.28);
+  color: #743129;
+}
+
 .policy-result-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(425px, 1fr);
+  grid-template-columns: minmax(425px, 1fr) minmax(0, 1.12fr);
   border-bottom: 1px solid var(--line);
 }
 
@@ -462,7 +479,7 @@ a {
   display: flex;
   align-items: center;
   padding: 24px 22px;
-  border-right: 1px solid var(--line);
+  border-left: 1px solid var(--line);
   background: rgba(247, 222, 217, 0.28);
 }
 
@@ -477,6 +494,14 @@ a {
   font-family: "Roboto Mono", monospace;
   font-size: 13px;
   line-height: 1.55;
+  transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.policy-findings li.is-highlighted {
+  color: var(--ink);
+  background: rgba(229, 146, 133, 0.12);
+  box-shadow: -8px 0 0 rgba(229, 146, 133, 0.55);
+  transform: translateX(3px);
 }
 
 .policy-findings li:last-child {
@@ -762,8 +787,8 @@ hr {
 
   .policy-findings {
     padding: 18px;
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
+    border-left: 0;
+    border-top: 1px solid var(--line);
   }
 
   #comparisons .result-caption {
