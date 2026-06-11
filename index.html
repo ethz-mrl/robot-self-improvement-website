@@ -189,12 +189,12 @@
           <button class="result-column tone-2" data-value="49.3" type="button"><strong>49.3</strong><span class="column-track"><i style="height:49.3%"></i></span><span class="column-label">SWIM</span></button>
           <button class="result-column tone-3" data-value="60.0" type="button"><strong>60.0</strong><span class="column-track"><i style="height:60%"></i></span><span class="column-label">LPB</span></button>
           <button class="result-column tone-4" data-value="60.0" type="button"><strong>60.0</strong><span class="column-track"><i style="height:60%"></i></span><span class="column-label">AWR</span></button>
-          <button class="result-column tone-5" data-value="61.3" type="button"><strong>61.3</strong><span class="column-track"><i style="height:61.3%"></i></span><span class="column-label">RECAP<sup>†</sup></span></button>
-          <button class="result-column tone-6" data-value="76.0" type="button"><strong>76.0</strong><span class="column-track"><i style="height:76%"></i></span><span class="column-label">RISE<sup>†</sup></span></button>
+          <button class="result-column tone-5" data-value="61.3" type="button"><strong>61.3</strong><span class="column-track"><i style="height:61.3%"></i></span><span class="column-label">RECAP<sup>*</sup></span></button>
+          <button class="result-column tone-6" data-value="76.0" type="button"><strong>76.0</strong><span class="column-track"><i style="height:76%"></i></span><span class="column-label">RISE<sup>*</sup></span></button>
           <button class="result-column ours-column active" data-value="85.3" type="button"><strong>85.3</strong><span class="column-track"><i style="height:85.3%"></i></span><span class="column-label">Ours</span></button>
         </div>
         <p class="result-table-summary" aria-live="polite"><strong>Ours:</strong> 85.3% average success rate.</p>
-        <p class="result-note"><sup>†</sup> No human-intervened corrections for fair comparisons.</p>
+        <p class="result-note"><sup>*</sup> No human-intervened corrections for fair comparisons.</p>
         <p class="result-caption">Across 5 real-world tasks, our framework achieves the highest average success rate among 6 representative baselines.</p>
       </div>
 
@@ -207,14 +207,14 @@
           <div class="policy-findings">
             <ul>
               <li>Supervised fine-tuning (SFT) provides a strong starting point through large-scale robot pretraining.</li>
-              <li>RECAP<sup>†</sup> without human corrections yields only <strong>+5.3%</strong>.</li>
+              <li>RECAP<sup>*</sup> without human corrections yields only <strong>+5.3%</strong>.</li>
               <li>Our DGAC module delivers a substantial <strong>+25.3%</strong> improvement.</li>
               <li>Human-video priors and failure-to-supervision learning nearly match heavily robot-pretrained policies (<strong>85.3% vs. 88.0%</strong>).</li>
             </ul>
           </div>
           <div class="result-chart policy-chart" role="group" aria-label="Policy-agnostic average success rates">
             <button class="result-column tone-2" data-value="62.7" type="button"><strong>62.7</strong><span class="column-track"><i style="height:62.7%"></i></span><span class="column-label">π<sub>0.5</sub> + SFT</span></button>
-            <button class="result-column tone-4" data-value="68.0" type="button"><strong>68.0</strong><span class="column-track"><i style="height:68%"></i></span><span class="column-label">π<sub>0.5</sub> + RECAP<sup>†</sup></span></button>
+            <button class="result-column tone-4" data-value="68.0" type="button"><strong>68.0</strong><span class="column-track"><i style="height:68%"></i></span><span class="column-label">π<sub>0.5</sub> + RECAP<sup>*</sup></span></button>
             <button class="result-column dgac-column" data-value="88.0" type="button"><strong>88.0</strong><span class="column-track"><i style="height:88%"></i></span><span class="column-label">π<sub>0.5</sub> + DGAC</span></button>
             <button class="result-column ours-column active" data-value="85.3" type="button"><strong>85.3</strong><span class="column-track"><i style="height:85.3%"></i></span><span class="column-label">Ours</span></button>
           </div>
