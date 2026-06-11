@@ -177,9 +177,56 @@
 <section class="section" id="comparisons">
   <div class="container is-max-desktop">
     <h2 class="title is-3 section-tag">Self-Improvement Results</h2>
-    <p class="results-intro" style="margin-bottom:2rem; color:#555;">
+    <!-- Interactive average-result tables -->
+    <div class="result-tables">
+      <div class="result-table-card" data-ours="85.3">
+        <div class="result-table-heading">
+          <h3>Benchmark Results</h3>
+          <span>Average success rate (%)</span>
+        </div>
+        <div class="result-chart benchmark-chart" role="group" aria-label="Benchmark average success rates">
+          <button class="result-column tone-1" data-value="41.3" type="button"><strong>41.3</strong><span class="column-track"><i style="height:41.3%"></i></span><span class="column-label">Expert BC</span></button>
+          <button class="result-column tone-2" data-value="49.3" type="button"><strong>49.3</strong><span class="column-track"><i style="height:49.3%"></i></span><span class="column-label">SWIM</span></button>
+          <button class="result-column tone-3" data-value="60.0" type="button"><strong>60.0</strong><span class="column-track"><i style="height:60%"></i></span><span class="column-label">LPB</span></button>
+          <button class="result-column tone-4" data-value="60.0" type="button"><strong>60.0</strong><span class="column-track"><i style="height:60%"></i></span><span class="column-label">AWR</span></button>
+          <button class="result-column tone-5" data-value="61.3" type="button"><strong>61.3</strong><span class="column-track"><i style="height:61.3%"></i></span><span class="column-label">RECAP<sup>†</sup></span></button>
+          <button class="result-column tone-6" data-value="76.0" type="button"><strong>76.0</strong><span class="column-track"><i style="height:76%"></i></span><span class="column-label">RISE<sup>†</sup></span></button>
+          <button class="result-column ours-column active" data-value="85.3" type="button"><strong>85.3</strong><span class="column-track"><i style="height:85.3%"></i></span><span class="column-label">Ours</span></button>
+        </div>
+        <p class="result-table-summary" aria-live="polite"><strong>Ours:</strong> 85.3% average success rate.</p>
+        <p class="result-note"><sup>†</sup> No human-intervened corrections for fair comparisons.</p>
+        <p class="result-caption">Across 5 real-world tasks, our framework achieves the highest average success rate among 6 representative baselines.</p>
+      </div>
+
+      <div class="result-table-card" data-ours="85.3">
+        <div class="result-table-heading">
+          <h3>Policy-Agnostic Self-Improvement</h3>
+          <span>Average success rate (%)</span>
+        </div>
+        <div class="policy-result-layout">
+          <div class="policy-findings">
+            <ul>
+              <li>Supervised fine-tuning (SFT) provides a strong starting point through large-scale robot pretraining.</li>
+              <li>RECAP<sup>†</sup> without human corrections yields only <strong>+5.3%</strong>.</li>
+              <li>Our DGAC module delivers a substantial <strong>+25.3%</strong> improvement.</li>
+              <li>Human-video priors and failure-to-supervision learning nearly match heavily robot-pretrained policies (<strong>85.3% vs. 88.0%</strong>).</li>
+            </ul>
+          </div>
+          <div class="result-chart policy-chart" role="group" aria-label="Policy-agnostic average success rates">
+            <button class="result-column tone-2" data-value="62.7" type="button"><strong>62.7</strong><span class="column-track"><i style="height:62.7%"></i></span><span class="column-label">π<sub>0.5</sub> + SFT</span></button>
+            <button class="result-column tone-4" data-value="68.0" type="button"><strong>68.0</strong><span class="column-track"><i style="height:68%"></i></span><span class="column-label">π<sub>0.5</sub> + RECAP<sup>†</sup></span></button>
+            <button class="result-column dgac-column" data-value="88.0" type="button"><strong>88.0</strong><span class="column-track"><i style="height:88%"></i></span><span class="column-label">π<sub>0.5</sub> + DGAC</span></button>
+            <button class="result-column ours-column active" data-value="85.3" type="button"><strong>85.3</strong><span class="column-track"><i style="height:85.3%"></i></span><span class="column-label">Ours</span></button>
+          </div>
+        </div>
+        <p class="result-caption">Our framework also generalizes to a pretrained policy backbone (𝜋<sub>0.5</sub>).</p>
+      </div>
+    </div>
+
+    <h3 class="title is-4 subsection-tag video-results-title">Qualitative Self-Improvement Results</h3>
+    <p class="results-intro video-results-intro" style="margin-bottom:2rem; color:#555;">
       Each pair shows <strong>Before Self-Improvement</strong> (left) vs. <strong>After Self-Improvement</strong> (right) using proposed DGAC module.
-       Repeated trials show that self-improvement converts initial failures into consistent task success across different embodiments. 
+      Repeated trials show that self-improvement converts initial failures into consistent task success across different embodiments.
       All videos are played at <strong>1x speed</strong>.
     </p>
 
@@ -382,7 +429,7 @@ function stGoTask(i) { stLoad(i); }
 // Each entry: [before_src, after_src]
 const BASE_FRANKA = "./media/franka";
 const BASE_STRETCH = "./media/stretch";
-const BASE_STRETCH_NEW = "./media/videos/self-improve-video-comparisons";
+
 
 const FRANKA_DATA = {
   brush_left: [
@@ -435,8 +482,8 @@ const STRETCH_DATA = {
   take_the_sponge_and_wipe_the_table: [
     [`${BASE_STRETCH}/latest_wipe_table/2026-05-23--14-13-00_compressed_gripper_images.mp4`,
      `${BASE_STRETCH}/latest_wipe_table/2026-05-23--13-59-54_compressed_gripper_images.mp4`],
-    [`${BASE_STRETCH_NEW}/sponge_compare/failure.mp4`,
-     `${BASE_STRETCH_NEW}/sponge_compare/succ1.mp4`],
+    ['./media/videos/self-improve-video-comparisons/sponge_compare/failure_cut.mp4',
+      './media/videos/self-improve-video-comparisons/sponge_compare/succ1_cut.mp4'],
     [`${BASE_STRETCH}/take_the_sponge_and_wipe_the_table/mis_grasp_right/src_videos/2026-03-17--12-57-38_gripper.mp4`,
      `${BASE_STRETCH}/take_the_sponge_and_wipe_the_table/mis_grasp_right/compared_videos/2026-04-15--17-51-46_gripper.mp4`],
   ],
@@ -522,6 +569,27 @@ function nextSample() { loadSample(currentIdx + 1); }
 
 // init on load
 document.addEventListener('DOMContentLoaded', () => { stLoad(0); loadSample(0); });
+
+document.querySelectorAll('.result-table-card').forEach(card => {
+  const ours = Number(card.dataset.ours);
+  const summary = card.querySelector('.result-table-summary');
+
+  card.querySelectorAll('.result-column').forEach(column => {
+    column.addEventListener('click', () => {
+      card.querySelectorAll('.result-column').forEach(item => item.classList.remove('active'));
+      column.classList.add('active');
+
+      const method = column.querySelector('.column-label').textContent.trim();
+      const value = Number(column.dataset.value);
+      const difference = value - ours;
+      const comparison = difference === 0
+        ? 'matches Ours'
+        : `${Math.abs(difference).toFixed(1)} points ${difference > 0 ? 'above' : 'below'} Ours`;
+
+      summary.innerHTML = `<strong>${method}:</strong> ${value.toFixed(1)}% average success rate · ${comparison}.`;
+    });
+  });
+});
 </script>
 
 <!-- Side navigation -->
