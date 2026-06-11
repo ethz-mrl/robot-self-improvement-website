@@ -278,8 +278,8 @@ a {
 .result-chart.policy-chart {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   height: 270px;
-  width: min(100%, 370px);
-  margin-left: 26px;
+  width: min(100%, 405px);
+  margin-left: 20px;
   margin-right: auto;
   border-bottom: 0;
 }
@@ -295,6 +295,7 @@ a {
   color: var(--ink);
   font-size: 11px;
   text-align: center;
+  text-decoration: none;
   cursor: pointer;
   transition: transform 0.15s ease;
 }
@@ -345,11 +346,24 @@ a {
 }
 
 .column-label {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 20px;
   overflow-wrap: anywhere;
   color: var(--muted);
   font-size: 10px;
   font-weight: 600;
   line-height: 1.15;
+}
+
+.column-label sup {
+  position: relative;
+  top: -0.15em;
+  margin-left: 1px;
+  font-size: 0.72em;
+  line-height: 1;
+  vertical-align: baseline;
 }
 
 .result-column.active .column-label {
@@ -367,6 +381,8 @@ a {
 
 .policy-chart .column-label {
   font-size: 11px;
+  overflow-wrap: normal;
+  white-space: nowrap;
 }
 
 #comparisons .result-table-summary {
@@ -401,7 +417,7 @@ a {
 
 .policy-result-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(390px, 0.95fr);
+  grid-template-columns: minmax(0, 1.12fr) minmax(425px, 1fr);
   border-bottom: 1px solid var(--line);
 }
 
