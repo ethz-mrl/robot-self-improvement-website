@@ -347,7 +347,7 @@ a {
 
 .column-label {
   display: flex;
-  align-items: flex-start;
+  align-items: baseline;
   justify-content: center;
   min-height: 20px;
   overflow-wrap: anywhere;
@@ -359,11 +359,24 @@ a {
 
 .column-label sup {
   position: relative;
-  top: -0.15em;
+  top: -0.35em;
   margin-left: 1px;
   font-size: 0.72em;
   line-height: 1;
   vertical-align: baseline;
+}
+
+.column-label sub {
+  position: relative;
+  top: 0.25em;
+  font-size: 0.72em;
+  line-height: 1;
+  vertical-align: baseline;
+}
+
+.method-plus {
+  margin-right: 0.35em;
+  margin-left: 0.55em;
 }
 
 .result-column.active .column-label {
