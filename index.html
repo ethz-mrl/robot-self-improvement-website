@@ -213,9 +213,9 @@
             </ul>
           </div>
           <div class="result-chart policy-chart" role="group" aria-label="Policy-agnostic average success rates">
-            <a class="result-column tone-2" data-value="62.7" href="https://www.pi.website/blog/pi05" target="_blank" rel="noopener noreferrer"><strong>62.7</strong><span class="column-track"><i style="height:62.7%"></i></span><span class="column-label">π<sub>0.5</sub><span class="method-plus">+</span>SFT</span></a>
-            <a class="result-column tone-4" data-value="68.0" href="https://www.pi.website/blog/pi05" target="_blank" rel="noopener noreferrer"><strong>68.0</strong><span class="column-track"><i style="height:68%"></i></span><span class="column-label">π<sub>0.5</sub><span class="method-plus">+</span>RECAP<sup>†</sup></span></a>
-            <a class="result-column dgac-column" data-value="88.0" href="https://www.pi.website/blog/pi05" target="_blank" rel="noopener noreferrer"><strong>88.0</strong><span class="column-track"><i style="height:88%"></i></span><span class="column-label">π<sub>0.5</sub><span class="method-plus">+</span>DGAC</span></a>
+            <a class="result-column tone-2" data-value="62.7" href="https://www.pi.website/blog/pi05" target="_blank" rel="noopener noreferrer"><strong>62.7</strong><span class="column-track"><i style="height:62.7%"></i></span><span class="column-label"><span class="pi-model">π<span class="pi-sub">0.5</span></span><span class="method-plus">+</span>SFT</span></a>
+            <a class="result-column tone-4" data-value="68.0" href="https://www.pi.website/blog/pi05" target="_blank" rel="noopener noreferrer"><strong>68.0</strong><span class="column-track"><i style="height:68%"></i></span><span class="column-label"><span class="pi-model">π<span class="pi-sub">0.5</span></span><span class="method-plus">+</span>RECAP<sup>†</sup></span></a>
+            <a class="result-column dgac-column" data-value="88.0" href="https://www.pi.website/blog/pi05" target="_blank" rel="noopener noreferrer"><strong>88.0</strong><span class="column-track"><i style="height:88%"></i></span><span class="column-label"><span class="pi-model">π<span class="pi-sub">0.5</span></span><span class="method-plus">+</span>DGAC</span></a>
             <a class="result-column ours-column active" data-value="85.3" href="#comparisons"><strong>85.3</strong><span class="column-track"><i style="height:85.3%"></i></span><span class="column-label">Ours</span></a>
           </div>
         </div>
@@ -584,14 +584,14 @@ document.querySelectorAll('.result-table-card').forEach(card => {
       card.querySelectorAll('.result-column').forEach(item => item.classList.remove('active'));
       column.classList.add('active');
 
-      const method = column.querySelector('.column-label').textContent.trim();
+      const method = column.querySelector('.column-label').innerHTML;
       const value = Number(column.dataset.value);
       const difference = value - ours;
       const comparison = difference === 0
         ? 'matches Ours'
         : `${Math.abs(difference).toFixed(1)} points ${difference > 0 ? 'above' : 'below'} Ours`;
 
-      summary.innerHTML = `<strong>${method}:</strong> ${value.toFixed(1)}% average success rate · ${comparison}.`;
+      summary.innerHTML = `<strong class="summary-method">${method}:</strong> ${value.toFixed(1)}% average success rate · ${comparison}.`;
     });
   });
 });

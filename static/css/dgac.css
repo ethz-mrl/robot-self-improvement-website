@@ -366,17 +366,41 @@ a {
   vertical-align: baseline;
 }
 
-.column-label sub {
+.pi-model {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.pi-sub {
   position: relative;
-  top: 0.25em;
+  top: 0.38em;
   font-size: 0.72em;
   line-height: 1;
-  vertical-align: baseline;
 }
 
 .method-plus {
   margin-right: 0.35em;
   margin-left: 0.55em;
+}
+
+.summary-method {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.summary-method .column-label {
+  display: inline-flex;
+  min-height: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+.summary-method .column-label sup,
+.summary-method sup {
+  position: relative;
+  top: -0.35em;
+  font-size: 0.72em;
+  line-height: 1;
 }
 
 .result-column.active .column-label {
