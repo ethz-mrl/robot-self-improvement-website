@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>X Thread Preview — DGAC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    --bg:#000000;
+    --panel:#000000;
+    --border:#2f3336;
+    --text:#e7e9ea;
+    --subtext:#71767b;
+    --blue:#1d9bf0;
+    --hover:#181818;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:#15181c;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);
+    display:flex;
+    justify-content:center;
+    padding:40px 12px;
+  }
+  .feed{
+    width:600px;
+    max-width:100%;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:16px;
+    overflow:hidden;
+  }
+  .feed-header{
+    padding:16px 16px 12px;
+    border-bottom:1px solid var(--border);
+    font-weight:800;
+    font-size:20px;
+  }
+  .tweet{
+    display:flex;
+    padding:12px 16px;
+    position:relative;
+  }
+  .tweet:not(:last-child)::after{
+    content:"";
+    position:absolute;
+    left:38px;
+    top:52px;
+    bottom:-12px;
+    width:2px;
+    background:var(--border);
+  }
+  .avatar-col{
+    width:48px;
+    flex-shrink:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .avatar{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#7c4dff,#1d9bf0);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    font-size:13px;
+    color:#fff;
+    flex-shrink:0;
+  }
+  .content-col{
+    flex:1;
+    min-width:0;
+    padding-left:12px;
+  }
+  .meta{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    font-size:15px;
+    flex-wrap:wrap;
+  }
+  .name{
+    font-weight:700;
+    color:var(--text);
+  }
+  .badge{
+    color:var(--blue);
+    font-size:15px;
+  }
+  .handle, .dot, .time{
+    color:var(--subtext);
+  }
+  .tweet-text{
+    margin:2px 0 10px;
+    font-size:15px;
+    line-height:20px;
+    white-space:pre-wrap;
+    word-wrap:break-word;
+  }
+  .tweet-text b{ color:var(--text); }
+  .tweet-media{
+    margin-top:6px;
+    margin-bottom:10px;
+    border:1px solid var(--border);
+    border-radius:16px;
+    overflow:hidden;
+  }
+  .tweet-media img{
+    width:100%;
+    display:block;
+    background:#000;
+  }
+  .stat-row{
+    margin-top:4px;
+    background:#16181c;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:14px;
+    font-size:14px;
+    color:var(--text);
+  }
+  .stat-row .big{
+    font-size:22px;
+    font-weight:800;
+    color:#00ba7c;
+  }
+  .stat-row .label{ color:var(--subtext); }
+  .actions{
+    display:flex;
+    justify-content:space-between;
+    max-width:425px;
+    margin-top:10px;
+    color:var(--subtext);
+    font-size:13px;
+  }
+  .action{
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .action svg{ width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; }
+  .links{
+    display:flex;
+    gap:8px;
+    margin-top:10px;
+    flex-wrap:wrap;
+  }
+  .links a{
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:6px 14px;
+    color:var(--blue);
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+  }
+  .links a:hover{ background:rgba(29,155,240,0.1); }
+  .credit{
+    text-align:center;
+    color:#71767b;
+    font-size:12px;
+    margin-top:18px;
+  }
+</style>
+</head>
+<body>
+
+<div class="feed">
+  <div class="feed-header">DGAC — X thread draft</div>
+
+  <!-- Tweet 1 -->
+  <div class="tweet">
+    <div class="avatar-col"><div class="avatar">DGAC</div></div>
+    <div class="content-col">
+      <div class="meta">
+        <span class="name">Anran Zhang</span>
+        <span class="badge">✔</span>
+        <span class="handle">@dipan_zhang</span>
+        <span class="dot">·</span>
+        <span class="time">7h</span>
+      </div>
+      <div class="tweet-text">🤖🎥 Human videos have recently been shown to initialize robot policies, even without robotic demonstrations.
+
+But what if human videos could do more than teach robots what to imitate?
+
+We show that human videos can teach robots predictive representations of action, dynamics, and value. These embodiment-agnostic representations transfer across robot embodiments, enabling robots to self-improve from their own rollouts and failures - without online human intervention. Introducing:
+
+📄 <b>Robot Self-Improvement via Human-Video Dynamics Models</b>
+
+Our method enables robots to self-improve across 7 real-world manipulation tasks:
+
+🚀 <b>40% → 81% success rate</b>
+✅ zero human intervention during improvement
+✅ works across robot embodiments and different policy backbones
+
+Human videos are not just data for imitation — they can supoort robot self-improvement.
+
+🧵👇
+</div>
+      <div class="tweet-media">
+        <video controls muted playsinline poster="" style="width:100%;display:block;background:#000;">
+          <source src="./media/video-teaser.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="actions">
+        <span class="action"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> 41</span>
+        <span class="action"><svg viewBox="0 0 24 24"><path d="M17 1l4 4-4 4"></path><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><path d="M7 23l-4-4 4-4"></path><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg> 312</span>
+        <span class="action"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg> 1.8K</span>
+        <span class="action"><svg viewBox="0 0 24 24"><path d="M3 12l18-9-9 18-2-7-7-2z"></path></svg> 86K</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tweet 2 -->
+  <div class="tweet">
+    <div class="avatar-col"><div class="avatar">DGAC</div></div>
+    <div class="content-col">
+      <div class="meta">
+        <span class="name">Anran Zhang</span>
+        <span class="badge">✔</span>
+        <span class="handle">@dipan_zhang</span>
+        <span class="dot">·</span>
+        <span class="time">7h</span>
+      </div>
+      <div class="tweet-text">Step 1: pretrain shared <b>policy, dynamics, and value</b> models from human videos — representations that transfer across robot embodiments.
+
+• <b>Policy</b> predicts 6-DoF wrist poses and hand closure variables
+• <b>Dynamics</b> predicts the action-conditioned world state, represnted by DINO-v3 visual tokens and point trajectories
+• <b>Value</b> predicts task progress</div>
+      <div class="tweet-media">
+        <img src="./media/images/pipeline.png" alt="DGAC pipeline">
+      </div>
+    </div>
+  </div>
+
+  <!-- Tweet 3 -->
+  <div class="tweet">
+    <div class="avatar-col"><div class="avatar">DGAC</div></div>
+    <div class="content-col">
+      <div class="meta">
+        <span class="name">Anran Zhang</span>
+        <span class="badge">✔</span>
+        <span class="handle">@dipan_zhang</span>
+        <span class="dot">·</span>
+        <span class="time">7h</span>
+      </div>
+      <div class="tweet-text">Step 2: let the robot run on its own — no human intervening.
+        
+When the robot fails, our <b>Dynamics-Guided Action Correction (DGAC)</b> module retrieves progress-aligned successful experiences, generates and ranks corrective action chunks with learned dynamics and value models, and uses the best correction to relabel the failed transition — turning the robot’s own failures into supervision for policy improvement.
+      </div>
+      <div class="tweet-media">
+        <img src="./media/images/DGAC.png" alt="DGAC correction visualization">
+      </div>
+    </div>
+  </div>
+
+  <!-- Tweet 4 -->
+  <div class="tweet">
+    <div class="avatar-col"><div class="avatar">DGAC</div></div>
+    <div class="content-col">
+      <div class="meta">
+        <span class="name">Anran Zhang</span>
+        <span class="badge">✔</span>
+        <span class="handle">@dipan_zhang</span>
+        <span class="dot">·</span>
+        <span class="time">7h</span>
+      </div>
+      <div class="tweet-text">Result: across <b>5 real-world manipulation tasks</b>, our framework achieves the highest average success rate among 6 representative baselines.</div>
+      <div class="tweet-media">
+        <img src="./media/images/baseline.png" alt="Benchmark comparison against baselines">
+      </div>
+    </div>
+  </div>
+
+  <!-- Tweet 4.5: OPEN SLOT — drop in qualitative before/after robot video clips here -->
+  <div class="tweet">
+    <div class="avatar-col"><div class="avatar">DGAC</div></div>
+    <div class="content-col">
+      <div class="meta">
+        <span class="name">Anran Zhang</span>
+        <span class="badge">✔</span>
+        <span class="handle">@dipan_zhang</span>
+        <span class="dot">·</span>
+        <span class="time">7h</span>
+      </div>
+      <div class="tweet-text">[ ADD QUALITATIVE TEXT HERE — e.g. "Before vs. after self-improvement:" ]</div>
+      <div class="tweet-media" style="border-style:dashed; display:flex; align-items:center; justify-content:center; min-height:200px; color:var(--subtext); font-size:13px;">
+        [ DROP QUALITATIVE ROBOT VIDEO CLIPS HERE ]
+      </div>
+    </div>
+  </div>
+
+  <!-- Tweet 5 -->
+  <div class="tweet">
+    <div class="avatar-col"><div class="avatar">DGAC</div></div>
+    <div class="content-col">
+      <div class="meta">
+        <span class="name">Anran Zhang</span>
+        <span class="badge">✔</span>
+        <span class="handle">@dipan_zhang</span>
+        <span class="dot">·</span>
+        <span class="time">7h</span>
+      </div>
+      <div class="tweet-text">Our approach is also policy-agnostic. Bolted onto <b>π0.5</b>, DGAC alone adds <b>+25.3%</b> success rate over SFT.</div>
+      <div class="tweet-media">
+        <img src="./media/images/policy_agnostic.png" alt="Policy-agnostic self-improvement results across backbones">
+      </div>
+    </div>
+  </div>
+
+  <!-- Tweet 6 -->
+  <div class="tweet">
+    <div class="avatar-col"><div class="avatar">DGAC</div></div>
+    <div class="content-col">
+      <div class="meta">
+        <span class="name">Anran Zhang</span>
+        <span class="badge">✔</span>
+        <span class="handle">@dipan_zhang</span>
+        <span class="dot">·</span>
+        <span class="time">7h</span>
+      </div>
+      <div class="tweet-text">[ ADD ACKNOWLEDGEMENT HERE ]
+
+More details:
+📄 arXiv: <a href="#" target="_blank" rel="noopener noreferrer" style="color:var(--blue);">link</a>
+🌐 Project page: <a href="#" target="_blank" rel="noopener noreferrer" style="color:var(--blue);">link</a>
+🎥 Video: <a href="https://youtu.be/ZW3ZHjrllJA?si=FzcHmbPWw3O3sP1q" target="_blank" rel="noopener noreferrer" style="color:var(--blue);">youtu.be/ZW3ZHjrllJA</a></div>
+    </div>
+  </div>
+
+</div>
+
+<div class="credit">Mockup for drafting purposes — not a live X post.</div>
+
+</body>
+</html>
