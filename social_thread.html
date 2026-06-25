@@ -184,7 +184,7 @@
         <span class="dot">·</span>
         <span class="time">7h</span>
       </div>
-      <div class="tweet-text">🤖🎥 Human videos have recently been shown to initialize robot policies, even without robotic demonstrations.
+      <div class="tweet-text">🤖🎥 We have recently seen some cool works that leverage human videos to learn robot policies, even without robot demonstrations (kudos to Humanego, Do-as-I-Do, etc.).
 
 But what if human videos could do more than teach robots what to imitate?
 
@@ -192,13 +192,17 @@ We show that human videos can teach robots predictive representations of action,
 
 📄 <b>Robot Self-Improvement via Human-Video Dynamics Models</b>
 
-Our method enables robots to self-improve across 7 real-world manipulation tasks:
+Our method enables two different robots to self-improve across 7 real-world manipulation tasks:
 
 🚀 <b>40% → 81% success rate</b>
 ✅ zero human intervention during improvement
-✅ works across robot embodiments and different policy backbones
+🌈 works across robot embodiments and different policy backbones
 
-Human videos are not just data for imitation — they can supoort robot self-improvement.
+Human videos are not just data for imitation - they can support robot self-improvement.
+
+📄 arXiv: <a href="https://arxiv.org/abs/2606.21406" target="_blank" rel="noopener noreferrer" style="color:var(--blue);">link</a>
+🌐 Project page: <a href="https://ethz-mrl.github.io/robot-self-improvement-website/" target="_blank" rel="noopener noreferrer" style="color:var(--blue);">link</a>
+🎥 Video: <a href="https://www.youtube.com/watch?si=FzcHmbPWw3O3sP1q&v=ZW3ZHjrllJA&feature=youtu.be" target="_blank" rel="noopener noreferrer" style="color:var(--blue);">youtu.be/ZW3ZHjrllJA</a>
 
 🧵👇
 </div>
@@ -230,7 +234,7 @@ Human videos are not just data for imitation — they can supoort robot self-imp
       <div class="tweet-text">Step 1: pretrain shared <b>policy, dynamics, and value</b> models from human videos — representations that transfer across robot embodiments.
 
 • <b>Policy</b> predicts 6-DoF wrist poses and hand closure variables
-• <b>Dynamics</b> predicts the action-conditioned world state, represnted by DINO-v3 visual tokens and point trajectories
+• <b>Dynamics</b> predicts the action-conditioned world state, represented by DINO-v3 visual tokens and point trajectories
 • <b>Value</b> predicts task progress</div>
       <div class="tweet-media">
         <img src="./media/images/pipeline.png" alt="DGAC pipeline">
@@ -249,7 +253,29 @@ Human videos are not just data for imitation — they can supoort robot self-imp
         <span class="dot">·</span>
         <span class="time">7h</span>
       </div>
-      <div class="tweet-text">Step 2: let the robot run on its own — no human intervening.
+      <div class="tweet-text">Step 2: human videos give useful priors, but robots still move differently and fail in their own ways.
+
+So we let the robot collect its own interaction data: a VLM proposes atomic tasks (e.g., close the drawer), and the frozen human-pretrained policy tries them. These rollouts adapt the dynamics and value models to real robot successes and failures.</div>
+      <div class="tweet-media">
+        <video controls muted playsinline style="width:100%;display:block;background:#000;">
+          <source src="./media/images/robot_adaptation.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tweet 4 -->
+  <div class="tweet">
+    <div class="avatar-col"><div class="avatar">DGAC</div></div>
+    <div class="content-col">
+      <div class="meta">
+        <span class="name">Anran Zhang</span>
+        <span class="badge">✔</span>
+        <span class="handle">@dipan_zhang</span>
+        <span class="dot">·</span>
+        <span class="time">7h</span>
+      </div>
+      <div class="tweet-text">Step 3: after robot-specific adaptation, we let the robot run on its own — no human intervention.
         
 When the robot fails, our <b>Dynamics-Guided Action Correction (DGAC)</b> module retrieves progress-aligned successful experiences, generates and ranks corrective action chunks with learned dynamics and value models, and uses the best correction to relabel the failed transition — turning the robot’s own failures into supervision for policy improvement.
       </div>
@@ -259,7 +285,7 @@ When the robot fails, our <b>Dynamics-Guided Action Correction (DGAC)</b> module
     </div>
   </div>
 
-  <!-- Tweet 4 -->
+  <!-- Tweet 5 -->
   <div class="tweet">
     <div class="avatar-col"><div class="avatar">DGAC</div></div>
     <div class="content-col">
@@ -277,7 +303,7 @@ When the robot fails, our <b>Dynamics-Guided Action Correction (DGAC)</b> module
     </div>
   </div>
 
-  <!-- Tweet 4.5: OPEN SLOT — drop in qualitative before/after robot video clips here -->
+  <!-- Tweet 4.5 -->
   <div class="tweet">
     <div class="avatar-col"><div class="avatar">DGAC</div></div>
     <div class="content-col">
@@ -288,9 +314,11 @@ When the robot fails, our <b>Dynamics-Guided Action Correction (DGAC)</b> module
         <span class="dot">·</span>
         <span class="time">7h</span>
       </div>
-      <div class="tweet-text">[ ADD QUALITATIVE TEXT HERE — e.g. "Before vs. after self-improvement:" ]</div>
-      <div class="tweet-media" style="border-style:dashed; display:flex; align-items:center; justify-content:center; min-height:200px; color:var(--subtext); font-size:13px;">
-        [ DROP QUALITATIVE ROBOT VIDEO CLIPS HERE ]
+      <div class="tweet-text">Self-improvement in action: before DGAC, failures occur and lead to unrecoverable task failures. After DGAC, the robot turns its own failed rollouts into supervision and recovers consistent task success.</div>
+      <div class="tweet-media">
+        <video controls muted playsinline style="width:100%;display:block;background:#000;">
+          <source src="./media/images/self-improvement-results.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
   </div>
@@ -306,9 +334,11 @@ When the robot fails, our <b>Dynamics-Guided Action Correction (DGAC)</b> module
         <span class="dot">·</span>
         <span class="time">7h</span>
       </div>
-      <div class="tweet-text">Our approach is also policy-agnostic. Bolted onto <b>π0.5</b>, DGAC alone adds <b>+25.3%</b> success rate over SFT.</div>
+      <div class="tweet-text">We further tested our framework with a Franka Panda robot, showing consistent improvement on a different embodiment.</div>
       <div class="tweet-media">
-        <img src="./media/images/policy_agnostic.png" alt="Policy-agnostic self-improvement results across backbones">
+        <video controls muted playsinline style="width:100%;display:block;background:#000;">
+          <source src="./media/images/cross_embodiment.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
   </div>
@@ -324,14 +354,14 @@ When the robot fails, our <b>Dynamics-Guided Action Correction (DGAC)</b> module
         <span class="dot">·</span>
         <span class="time">7h</span>
       </div>
-      <div class="tweet-text">[ ADD ACKNOWLEDGEMENT HERE ]
-
-More details:
-📄 arXiv: <a href="#" target="_blank" rel="noopener noreferrer" style="color:var(--blue);">link</a>
-🌐 Project page: <a href="#" target="_blank" rel="noopener noreferrer" style="color:var(--blue);">link</a>
-🎥 Video: <a href="https://youtu.be/ZW3ZHjrllJA?si=FzcHmbPWw3O3sP1q" target="_blank" rel="noopener noreferrer" style="color:var(--blue);">youtu.be/ZW3ZHjrllJA</a></div>
+      <div class="tweet-text">We also show that our approach is also policy-agnostic. Bolted onto <b>π0.5</b>, DGAC alone adds <b>+25.3%</b> success rate over SFT.</div>
+      <div class="tweet-media">
+        <img src="./media/images/policy_agnostic.png" alt="Policy-agnostic self-improvement results across backbones">
+      </div>
     </div>
   </div>
+
+
 
 </div>
 
