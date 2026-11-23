@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Robot Self-Improvement via Human-Video Dynamics Models: DGAC improves robot success rates from 40% to 81% across seven real-world tasks using human-video priors.">
+  <meta name="description" content="Learning from Failure: Robot Self-Improvement via Human Videos: DGAC improves robot success rates from 40% to 81% across seven real-world tasks using human-video priors.">
   <meta name="keywords" content="Robot Learning, Human Videos, Dynamics Models, Policy Improvement, Manipulation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Robot Self-Improvement via Human-Video Dynamics Models</title>
+  <title> Learning from Failure: Robot Self-Improvement via Human Videos</title>
 
   <link rel="icon" href="./media/images/technology.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@
         <div class="column has-text-centered">
           <div class="eyebrow">Human videos are not just for imitation</div>
           <h1 class="title is-1 publication-title">
-            Robot Self-Improvement via Human-Video Dynamics Models
+            Learning from Failure: Robot Self-Improvement via Human Videos
           </h1>
           <div class="publication-venue">Preprint 2026</div>
 
@@ -107,22 +107,16 @@
         <h2 class="title is-3 section-tag">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            A central question in robot learning is how to acquire skills from the kinds of data that
-            humans learn from: passive observation, embodied practice, and the experience of failure.
-            Human videos provide the first of these in abundance, and prior work has shown they can 
-            initialize useful policies. Far less clear is whether they can support the second and third: 
-            whether priors extracted from human videos can ground a robot's own attempts well enough to evaluate them, 
-            correct them, and improve from them.             
-            In this work, we show that human videos can be used to learn embodiment-agnostic action,
-            dynamics, and value representations that transfer across robot embodiments, providing the
-            predictive foundation for robots to autonomously improve from their own rollouts and failures.
-            We introduce <strong>Dynamics-Guided Action Correction (DGAC)</strong>, a training-free approach
-            that leverages these adapted models to repair failed states — each failure becomes a query for
-            which the learned models propose and rank corrective actions, turning failures into supervision
-            for the next policy update. Across seven real-world manipulation tasks spanning both a mobile
-            manipulator and a static manipulator arm, our approach improves success rates from
-            <strong>40% to 81%</strong> across multiple policy backbones, demonstrating cross-embodiment
-            robot self-improvement from human-video priors.
+            Learning from deployment experience is essential for robots to improve their performance in the real world. 
+            A robot should be able to learn from failed executions, but these do not reveal which actions would have succeeded, 
+            and obtaining corrections from human experts requires costly monitoring and intervention. Human videos offer a rich source of interaction experience, 
+            showing how actions change the environment and lead to task completion. To turn this experience into corrective supervision, we introduce Dynamics-Guided Action Correction (DGAC), 
+            which uses dynamics and value models pretrained on human videos to construct alternative actions at failed states and evaluate their outcomes without executing each candidate. 
+            We evaluate our method on seven real-world manipulation tasks across two robot embodiments and demonstrate that it improves the average success rate from 40% to 81%, 
+            requiring no expert corrections during self-improvement. We further show that generated corrections enable recovery from failed executions and provide more effective 
+            training targets than imagined policy rollouts using the same models and data. Finally, we demonstrate that human-video dynamics and value models provide effective corrective 
+            supervision for policies pretrained on either human or robot data, suggesting that human videos benefit robot learning in addition to policy initialization.
+
           </p>
         </div>
       </div>
@@ -358,7 +352,7 @@
     <h2 class="title">BibTeX</h2>
     <pre><code>
       @article{chenzhang2026robot,
-        title   = {Robot Self-Improvement via Human-Video Dynamics Models},
+        title   = {Learning from Failure: Robot Self-Improvement via Human Videos},
         author  = {Chen, Hanzhi and Zhang, Anran and Schaefer, Simon and
                   Chen, Kejia and Chen, Shi and Cremers, Daniel and
                   Mees, Oier and Leutenegger, Stefan},
